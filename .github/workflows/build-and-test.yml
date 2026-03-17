@@ -17,6 +17,7 @@ env:
   KIND_CLUSTER_NAME: "kserve-testing"
   ISVC_NAME: "caikit-tgis-isvc"
   TEST_NS: "kserve-demo"
+  KSERVE_VERSION: "v0.12.1.4"
   # note: knative serving will try to resolve the image tag unless the registry is kind.local
   # See the deployment configmap:
   #   registries-skipping-tag-resolving: "kind.local,ko.local,dev.local"
@@ -100,6 +101,7 @@ jobs:
         with:
           cluster_name: ${{ env.KIND_CLUSTER_NAME }}
           namespace: ${{ env.TEST_NS }}
+          kserve_version: ${{ env.KSERVE_VERSION }}
 
       - name: Download built image
         uses: actions/download-artifact@v4
